@@ -23,7 +23,7 @@ const ExampleModel = mongoose.model('Example', exampleSchema);
 const init = async () => {
     const server = Hapi.server({
         port: process.env.PORT || 4005, // Menggunakan PORT dari .env
-        host: 'localhost',
+        host: '0.0.0.0',
     });
 
     // Menambahkan routes
