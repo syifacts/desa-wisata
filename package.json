@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@hapi/hapi": "^21.3.12",
+    "dotenv": "^16.4.5",
+    "joi": "^17.13.3",
+    "mongoose": "^8.8.3",
+    "nanoid": "^5.0.9"
+  }
+}
