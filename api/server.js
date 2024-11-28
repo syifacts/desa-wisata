@@ -33,7 +33,7 @@ const init = async () => {
     await connectToDatabase();
 
     const server = Hapi.server({
-        port: process.env.PORT || 3201, // Menggunakan PORT dari .env
+        port: process.env.PORT || 3000, // Menggunakan PORT dari .env
         host: '0.0.0.0',
         routes: {
             timeout: {
