@@ -7,7 +7,11 @@ const routes = [
         path: '/desa-wisata',
         handler: async (request, h) => {
             try {
-                const desaWisata = await ExampleModel.find();
+                // Mengambil data dengan limit dan offset untuk pagination
+                const { limit = 10, offset = 0 } = request.query;
+                const desaWisata = await ExampleModel.find()
+                    .limit(Number(limit))
+                    .skip(Number(offset));
                 return h.response(desaWisata).code(200);
             } catch (error) {
                 console.error(error);

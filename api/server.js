@@ -11,7 +11,6 @@ const connectToDatabase = async () => {
     try {
         await mongoose.connect(process.env.MONGO_URI, {
             // Opsi yang sudah tidak berlaku lagi di MongoDB Driver versi terbaru
-            // Menghapus useNewUrlParser dan useUnifiedTopology
         });
         console.log('Koneksi ke MongoDB berhasil');
     } catch (error) {
