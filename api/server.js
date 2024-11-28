@@ -10,8 +10,8 @@ dotenv.config();
 const connectToDatabase = async () => {
     try {
         await mongoose.connect(process.env.MONGO_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
+            // Opsi yang sudah tidak berlaku lagi di MongoDB Driver versi terbaru
+            // Menghapus useNewUrlParser dan useUnifiedTopology
         });
         console.log('Koneksi ke MongoDB berhasil');
     } catch (error) {
@@ -54,3 +54,6 @@ process.on('unhandledRejection', (err) => {
 
 // Memanggil fungsi init untuk memulai server
 init();
+
+// Ekspor server untuk digunakan di tempat lain, jika diperlukan
+export default init;
