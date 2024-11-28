@@ -1,6 +1,6 @@
 import Hapi from '@hapi/hapi';
 import mongoose from 'mongoose';
-import routes from './routes.js';
+import routes from '../routes/routes.js';
 import dotenv from 'dotenv';
 
 // Konfigurasi dotenv
