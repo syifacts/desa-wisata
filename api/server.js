@@ -42,6 +42,31 @@ const init = async () => {
         }
     });
 
+    server.route({
+        method: 'GET',
+        path: '/favicon.ico',
+        handler: (request, h) => {
+            return h.response().code(204); // Mengembalikan status 204 (No Content)
+        }
+    });
+
+    server.route({
+        method: 'GET',
+        path: '/favicon.png',
+        handler: (request, h) => {
+            return h.response().code(204); // Mengembalikan status 204 (No Content)
+        }
+    });
+
+    // Rute lainnya
+    server.route({
+        method: 'GET',
+        path: '/',
+        handler: (request, h) => {
+            return 'Welcome to My Website!';
+        }
+    });
+
     // Menambahkan routes
     server.route(routes);
 
