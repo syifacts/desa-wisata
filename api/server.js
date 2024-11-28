@@ -29,7 +29,7 @@ const ExampleModel = mongoose.model('Example', exampleSchema);
 
 // Fungsi utama untuk menginisialisasi server
 const init = async () => {
-    // Menghubungkan ke database
+    // Menghubungkan ke databas
     await connectToDatabase();
 
     const server = Hapi.server({
