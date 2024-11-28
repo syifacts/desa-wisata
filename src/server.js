@@ -6,11 +6,19 @@ import dotenv from 'dotenv';
 // Konfigurasi dotenv
 dotenv.config();
 
-// Koneksi ke MongoDB menggunakan variabel lingkungan
-await mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+// Fungsi untuk menghubungkan ke MongoDB
+const connectToDatabase = async () => {
+    try {
+        await mongoose.connect(process.env.MONGO_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log('Koneksi ke MongoDB berhasil');
+    } catch (error) {
+        console.error('Koneksi ke MongoDB gagal:', error);
+        process.exit(1); // Keluar dari proses jika koneksi gagal
+    }
+};
 
 // Definisikan skema
 const exampleSchema = new mongoose.Schema({
@@ -20,7 +28,11 @@ const exampleSchema = new mongoose.Schema({
 
 const ExampleModel = mongoose.model('Example', exampleSchema);
 
+// Fungsi utama untuk menginisialisasi server
 const init = async () => {
+    // Menghubungkan ke database
+    await connectToDatabase();
+
     const server = Hapi.server({
         port: process.env.PORT || 4005, // Menggunakan PORT dari .env
         host: '0.0.0.0',
@@ -40,4 +52,5 @@ process.on('unhandledRejection', (err) => {
     process.exit(1);
 });
 
+// Memanggil fungsi init untuk memulai server
 init();
