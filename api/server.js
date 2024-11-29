@@ -34,7 +34,7 @@ const init = async () => {
 
     const server = Hapi.server({
         port: process.env.PORT || 3000, // Menggunakan PORT dari .env
-        host: '0.0.0.0',
+        host: 'localhost',
         routes: {
             timeout: {
                 server: 10000,
@@ -72,8 +72,10 @@ const init = async () => {
 
     // Menjalankan server
     await server.start();
+    console.log("Server is starting...");
+    await server.start();
     console.log(`Server berjalan pada ${server.info.uri}`);
-};
+    };
 
 // Menangani error
 process.on('unhandledRejection', (err) => {
