@@ -34,7 +34,7 @@ const init = async () => {
 
     const server = Hapi.server({
         port: process.env.PORT || 3000, // Menggunakan PORT dari .env
-        host: 'localhost',
+        host: '0.0.0.0',
         routes: {
             timeout: {
                 server: 10000,
