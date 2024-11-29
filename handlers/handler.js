@@ -30,7 +30,7 @@ export const addDesaWisataHandler = (request, h) => {
     const { name, location, photo, description } = request.payload;
 
     const newDesaWisata = {
-        id: nanoid(), // Menghasilkan ID unik
+        id: nanoid(), 
         name,
         location,
         photo,
@@ -113,7 +113,7 @@ export const deleteDesaWisataByIdHandler = (request, h) => {
         }).code(404);
     }
 
-    delete desaWisataData[id]; // Menghapus data desa wisata dari objek
+    delete desaWisataData[id]; 
 
     return {
         status: 'success',

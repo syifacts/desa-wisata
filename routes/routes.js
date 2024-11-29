@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import ExampleModel from '../models/model.js'; // Pastikan Anda mengimpor model yang benar
+import ExampleModel from '../models/model.js'; 
 
 const routes = [
     {
